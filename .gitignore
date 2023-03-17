@@ -1,0 +1,36 @@
+#------------- Universal settings -------------#
+
+#--- Generated files ---#
+# Python cache
+__pycache__
+
+# MacOS files
+.DS_STORE
+
+# Build directories for LaTeX and Sphinx
+build
+
+# LaTeX build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdfsync
+*.run.xml
+*.synctex.gz
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Egg-info for pip
+*.egg-info
+
+#--- Custom files ---#
+# Archived files
+_archive
+
+#------------- Project-specific settings -------------#
