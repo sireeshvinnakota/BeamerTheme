@@ -22,6 +22,9 @@ build
 *.pdfsync
 *.run.xml
 *.synctex.gz
+*.nav
+*.snm
+*.toc
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints
