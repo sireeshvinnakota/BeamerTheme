@@ -17,6 +17,8 @@
 %
 %============================================================================================%
 %Adapted to UCI by Sireesh Vinnakota, University of California, Irvine
+%sites.uci.edu/sireesh 
+%https://github.com/sireeshvinnakota
 
 
 %============================================================================================%
@@ -27,10 +29,10 @@
 \usepackage{tikz}
 \usepackage[export]{adjustbox}
 \usepackage{manfnt, upgreek, bbm, mathrsfs, hyperref, marvosym, multicol, amsmath, amssymb, amsfonts, amsthm, xcolor, graphicx, hyperref, lmodern} 
+
+%ADDITIONAL PACKAGES--------------------
 %The following package is necessary for the itemized list chevrons.
 \usepackage{fontawesome5}
-
-
 %The following package removes the appendix slides from the count at the bottom, but trades off for a clash with the hyperref package. 
 \usepackage{appendixnumberbeamer} 
   %To resolve this issue, we add:
@@ -42,6 +44,7 @@
 \usepackage{animate}
 \usetikzlibrary{shadings}
 
+%If you prefer revealing text on a slide transparently at first, uncomment this out 
 %\usepackage{transparent}
 
 
@@ -155,12 +158,16 @@
 \setbeamertemplate{sections/subsections in toc}[square]
 \setbeamercolor{section in toc}{fg=black}
 \setbeamercolor{subsection in toc}{fg=black}
+
+
+
+
 %============================================================================================%
 % 		My own little peccadillos 
 %============================================================================================%
+
 %Environments
 \newcounter{count}
-
 \newtheorem{prop}[count]{Proposition}
 \newtheorem{ec}[count]{Extra Credit}
 \newtheorem{thm}[count]{Theorem}
@@ -174,8 +181,7 @@
 \newtheorem{exx}[count]{Example}
 \newtheorem{mq}[count]{Motivating Question}
 
-%New Commands
-%\renewcommand{\labelitemi}{\textasteriskcentered}
+%New Commands-------------------------
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
@@ -189,6 +195,5 @@
 \newcommand{\lrsq}[1]{\left \{ {#1} \right \}}
 \newcommand{\lrabs}[1]{\left | {#1} \right |}
 \newcommand{\lrfl}[1]{\left \lfloor {#1} \right \rfloor}
-\newcommand{\jq}[1]{\justif{\quad}{#1}}
 
 \newcommand{\mte}[1]{\quad \text{#1} \quad}
