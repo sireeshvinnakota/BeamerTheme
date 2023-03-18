@@ -16,17 +16,29 @@
 % 		http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/LatexTips.html
 %
 %============================================================================================%
-%Adapted to UCI by Sireesh Vinnakota, Pomona College Department of Mathmatics Class of 2021 :)
+%Adapted to UCI by Sireesh Vinnakota, University of California, Irvine
 
 
 %============================================================================================%
 % 		Packages that will be used
 %============================================================================================%
-\usepackage{xcolor}				% Create custom colours
-\usepackage[overlay]{textpos} 			% Position logo in each slide header
+\usepackage{xcolor}				           % Create custom colours
+\usepackage[overlay]{textpos} 			 % Position logo in each slide header
 \usepackage{tikz}
 \usepackage[export]{adjustbox}
-\usepackage{manfnt, tikz, upgreek, bbm, mathrsfs, hyperref, marvosym, multicol, amsmath, amssymb, amsfonts, amsthm, xcolor, graphicx, hyperref, lmodern}
+\usepackage{manfnt, upgreek, bbm, mathrsfs, hyperref, marvosym, multicol, amsmath, amssymb, amsfonts, amsthm, xcolor, graphicx, hyperref, lmodern} 
+%The following package is necessary for the itemized list chevrons.
+\usepackage{fontawesome5}
+
+
+%The following package removes the appendix slides from the count at the bottom, but trades off for a clash with the hyperref package. 
+\usepackage{appendixnumberbeamer} 
+  %To resolve this issue, we add:
+  \pdfstringdefDisableCommands{%
+    \def\translate#1{#1}%
+  }
+
+
 \usepackage{animate}
 \usetikzlibrary{shadings}
 
@@ -67,7 +79,7 @@
 %============================================================================================%
 
 % Use sharp right angle corners rather than the rounded corners
-\setbeamertemplate{blocks}[default]
+\setbeamertemplate{blocks}[rounded][shadow=true]
 
 
 		
@@ -98,23 +110,12 @@
 \setbeamercolor{button}{bg=IrvineLightGold,fg=white}
 
 
-
-
-
-
-
-
 % Itemized lists:
 %---------------------
-
-% Create "shield" shape (Cant remember where I found this code)
-
-%CHANGE THIS
-\newcommand\shield{ \tikz [baseline] \path [fill=IrvineNavy] (0,1.3ex) -- (0,0.56ex) arc [radius=0.5ex, start angle=-180, end angle=0] -- (1ex,1.3ex) -- cycle ;  }
-
-\defbeamertemplate{itemize item}{image}{\shield}
-\defbeamertemplate{itemize subitem}{image}{\shield}
-\defbeamertemplate{itemize subsubitem}{image}{\shield}
+% This is the set of lines that requires the fontawesome package 
+\defbeamertemplate{itemize item}{image}{\faChevronRight}
+\defbeamertemplate{itemize subitem}{image}{\faAngleDoubleRight}
+\defbeamertemplate{itemize subsubitem}{image}{\faAngleDoubleRight}
 
 \setbeamertemplate{itemize item}[image]
 \setbeamertemplate{itemize subitem}[image]
@@ -127,59 +128,20 @@
 
 
 
-% Space out itemized items a bit more
+% Uncomment to space out itemized items a bit more
 %---------------------
 
-\newlength{\wideitemsep}
-\setlength{\wideitemsep}{\itemsep}
-\addtolength{\wideitemsep}{0.25em}
-\let\olditem\item
-\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+%\newlength{\wideitemsep}
+%\setlength{\wideitemsep}{\itemsep}
+%\addtolength{\wideitemsep}{0.25em}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
 
 
 
 
 
 
-
-
-  		
-
-
-%============================================================================================%
-% 		Dont  count appendix slides in the number of total slides displayed on lower right corner of each slide.
-%============================================================================================%
-
-\makeatletter
-
-\let\appendixtotalframenumber\empty
-\def\mainend{-1}
-\let\appendixorig\appendix
-
-\def\appendix{
-  \edef\mainend{\theframenumber}
-  \immediate\write\@auxout{\string\global\string\@namedef{mainendframenumber}{\mainend}}
-  \appendixorig
-  \def\inserttotalframenumber{\appendixtotalframenumber}%
-  \setcounter{framenumber}{0}
-}
-
-\def\pageatend{
-  \edef\appendixend{\theframenumber}
-  \ifnum\mainend>0%
-  \immediate\write\@auxout{\string\global\string\@namedef{appendixtotalframenumber}{\appendixend}}%
-  \immediate\write\@auxout{\string\global\string\@namedef{inserttotalframenumber}{\mainend}}%
-  \immediate\write\@auxout{\string\@writefile{nav}{\noexpand \headcommand {%
-        \noexpand \def\noexpand \inserttotalframenumber{\mainend}}}}%
-  \immediate\write\@auxout{\string\@writefile{nav}{\noexpand \headcommand {%
-        \noexpand \def\noexpand \appendixtotalframenumber{\appendixend}}}}%
-  \else
-  \fi
-}
-
-
-\AtEndDocument{\pageatend}
-\makeatother
 
 
 
