@@ -1,7 +1,7 @@
 %============================================================================================%
 %   Define colors
 %============================================================================================%
-% taken from http://communications.uchicago.edu/identity/color-palette
+% taken from https://brand.uci.edu/master-branding/color-palette/
 
 % Signature Color Palette
   \definecolor{IrvineNavy}{RGB}{0,100,164}
@@ -9,19 +9,23 @@
   \definecolor{IrvineLightGold}{RGB}{247,235,95}
 
 % Secondary Color Palette
-  \definecolor{PomonaBlue}{RGB}{32,67,143}
+  %Blues
+  \definecolor{IrvineBlue}{RGB}{32,67,143}
+  \definecolor{IrvineBlue1}{RGB}{0,100,164}
+  %Grays
   \definecolor{IrvineDarkGray}{RGB}{85,87,89}
   \definecolor{IrvineLightGray}{RGB}{197,190,181}
-  \definecolor{PomonaOrange}{RGB}{247,148,29}
-  \definecolor{PomonaLightGreen}{RGB}{60,179,113}
-  \definecolor{PomonaDarkGreen}{RGB}{20,119,53} 
-  \definecolor{ChicagoBlue}{RGB}{32,67,143}
-  \definecolor{IrvineBlueLight}{RGB}{91,150,173}
-  \definecolor{IrvineBlueDark}{RGB}{21,67,95}
+  %Greens
+  \definecolor{IrvineLightGreen}{RGB}{131,212,117} 
+  \definecolor{IrvineDarkGreen}{RGB}{46,182,44}
+  \definecolor{PomonaOrange}{RGB}{247,141,45}
+  
+  \definecolor{IrvineBlueLight}{RGB}{106,162,184}
+  \definecolor{IrvineBlueDark}{RGB}{27,61,109}
   \definecolor{IrvineViolet}{RGB}{53,14,32}
     
 % Colors for the Shading
-  \definecolor{BlueShade1}{RGB}{0,100,164} % Colors taken from UChicago Powerpoint slides
+  \definecolor{BlueShade1}{RGB}{0,100,164} 
   \definecolor{RedShade2}{RGB}{0,17,63}
     
 
@@ -31,21 +35,21 @@
 
 
 %============================================================================================%
-%   Assign colors
+%   ASSIGN COLORS
 %============================================================================================%
 
 % Specify base color of the presentation
   \usecolortheme[named=IrvineDarkGray]{structure}
 
 % Specify other specific colors
-  \setbeamercolor{block title alerted}{fg=white,bg=ChicagoBlue}
+  \setbeamercolor{block title alerted}{fg=white,bg=IrvineBlue1}
   \setbeamercolor{block body alerted}{bg=IrvineBlueLight!50!white}
   
   \setbeamercolor{block title}{bg=IrvineNavy,fg=white}
   \setbeamercolor{block body}{bg=IrvineLightGray}
   
-  \setbeamercolor{block title example}{bg=PomonaDarkGreen,fg=white}
-  \setbeamercolor{block body example}{bg=PomonaLightGreen,fg=white}
+  \setbeamercolor{block title example}{bg=IrvineDarkGreen,fg=white}
+  \setbeamercolor{block body example}{bg=IrvineLightGreen,fg=white}
 
   \setbeamercolor{author in head/foot}{bg=IrvineNavy,fg=white}
   \setbeamercolor{title in head/foot}{bg=IrvineDarkGold,fg=black}
@@ -58,7 +62,7 @@
 
 
 %============================================================================================%
-%   Create slide title bar
+%   CREATE SLIDE TITLE BAR
 %============================================================================================%
 % Slide title bar features a blend of reds and a watermark of the shield logo on the right hand side
 
@@ -116,8 +120,6 @@
 
 
 % Add logo
-
-
 \addtobeamertemplate{frametitle}{}{%
   \begin{textblock*}{1.2em}[1,1](0.87\paperwidth,0mm)
   \includegraphics[height=3em,width=3em,keepaspectratio]{crest_title.png}
@@ -126,7 +128,7 @@
 
 
 %============================================================================================%
-%     Customise enumerates and itemized lists
+%     CUSTOMISE ENUMERATES AND ITEMIZED LISTS
 %============================================================================================%
 
 % Enumerated lists:
@@ -139,7 +141,7 @@
 \setbeamercolor*{enumerate subsubitem}{fg=IrvineNavy}
 
 %============================================================================================%
-%   Create title slide
+%     CREATE TITLE SLIDE
 %============================================================================================%
 
 % Customize the text layout:
@@ -190,7 +192,7 @@
 %============================================================================================%
 %     Customize \tableofcontent
 %============================================================================================%
-% Simplier design. Maroon bold numbers, and black text
+% Simplier design.
 
 \setbeamerfont{section number projected}{series=\bfseries,size=\normalsize}
 \setbeamercolor{section number projected}{bg=white,fg=IrvineNavy}
