@@ -128,9 +128,34 @@
 }
 
 
+
+
 %============================================================================================%
-%     CUSTOMISE ENUMERATES AND ITEMIZED LISTS
-%============================================================================================%
+%   Inner theme
+%============================================================================================%  
+%%%%%%
+% Here we am using the rounded theme for the overall "feel" of the presentation. You can change the specific details by editing that particular option as we have done below.
+\useinnertheme{rounded}
+
+
+\setbeamercolor{button}{bg=IrvineLightGold,fg=white}
+
+
+% Itemized lists:
+%---------------------
+% This is the set of lines that requires the fontawesome package 
+\defbeamertemplate{itemize item}{image}{\faChevronRight}
+\defbeamertemplate{itemize subitem}{image}{\faAngleDoubleRight}
+\defbeamertemplate{itemize subsubitem}{image}{\faAngleDoubleRight}
+
+\setbeamertemplate{itemize item}[image]
+\setbeamertemplate{itemize subitem}[image]
+\setbeamertemplate{itemize subsubitem}[image]
+
+% Use IrvineNavy color when the user defines their own itemize marker
+\setbeamercolor*{itemize item}{fg=IrvineNavy}
+\setbeamercolor*{itemize subitem}{fg=IrvineNavy}
+\setbeamercolor*{itemize subsubitem}{fg=IrvineNavy}
 
 % Enumerated lists:
 %---------------------
@@ -140,6 +165,8 @@
 \setbeamercolor*{enumerate item}{fg=IrvineNavy}
 \setbeamercolor*{enumerate subitem}{fg=IrvineNavy}
 \setbeamercolor*{enumerate subsubitem}{fg=IrvineNavy}
+
+
 
 %============================================================================================%
 %     CREATE TITLE SLIDE
