@@ -1,0 +1,160 @@
+%============================================================================================%
+%		UNOFFICIAL UCI COLLEGE BEAMER THEME
+%============================================================================================%
+% This is based off of a template by Michael Kircher,whose information is provided below:
+%============================================================================================%
+% 	Created by: Michael Kirker (http://michaelkirker.net)
+%	  The latest version of this theme is hosted at the Github repository: 
+%       https://github.com/michaelkirker/Unofficial-UChicago-Beamer-Theme
+% 	I have created this theme by cobbling together many snippets of code that I have picked up over the years from various 
+%	  sources online, and by simple tinkering. Therefore I am unable to fully credit all original sources.
+% 	Some of the main sources:
+% 		https://tex.stackexchange.com/
+% 		http://programming-r-pro-bro.blogspot.com/2011/11/create-your-own-beamer-template.html
+% 		http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/LatexTips.html
+%============================================================================================%
+%Adapted to UCI by Sireesh Vinnakota, University of California, Irvine
+%sites.uci.edu/sireesh 
+%https://github.com/sireeshvinnakota
+
+
+%============================================================================================%
+% 		Packages that will be used
+%============================================================================================%
+\usepackage{xcolor}				           % Create custom colours
+\usepackage[overlay]{textpos} 			 % Position logo in each slide header
+\usepackage{tikz}
+\usepackage[export]{adjustbox}
+\usepackage{manfnt, upgreek, bbm, mathrsfs, hyperref, marvosym, multicol, amsmath, amssymb, amsfonts, amsthm, xcolor, graphicx, hyperref, lmodern} 
+
+%ADDITIONAL PACKAGES--------------------
+%The following package is necessary for the itemized list chevrons.
+\usepackage{fontawesome5}
+%The following package removes the appendix slides from the count at the bottom, but trades off for a clash with the hyperref package. 
+\usepackage{appendixnumberbeamer} 
+  %To resolve this issue, we add:
+  \pdfstringdefDisableCommands{%
+    \def\translate#1{#1}%
+  }
+
+
+\usepackage{animate}
+\usetikzlibrary{shadings}
+
+
+
+
+%============================================================================================%
+% 		Change some global settings
+%============================================================================================%
+
+% Make hidden upcoming elements in a slide semi-transparent rather than completely invisible
+
+%If you prefer revealing text on a slide transparently at first, uncomment this out 
+%\usepackage{transparent}
+\mode<presentation>{
+		\setbeamercovered{invisible}
+		}
+
+
+% Specify baseline theme from which we will build off
+
+\usetheme{Madrid}
+
+
+% Remove the navigation symbols from the lower right corner of each slide
+	
+\beamertemplatenavigationsymbolsempty
+	
+
+
+ 		
+ 		
+
+%============================================================================================%
+%		Theme the blocks
+%============================================================================================%
+
+% Use sharp right angle corners rather than the rounded corners
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+		
+%============================================================================================%
+%		Adjust fonts
+%============================================================================================%		
+
+% Here we are using default fonts
+\usefonttheme{professionalfonts}
+
+
+% Font for the presentation title
+%\setbeamerfont{title}{size = \huge}
+
+% Font of the frame titles
+%\setbeamerfont{frametitle}{size = \Large}
+
+
+
+
+
+
+
+% Uncomment to space out itemized items a bit more
+%---------------------
+
+%\newlength{\wideitemsep}
+%\setlength{\wideitemsep}{\itemsep}
+%\addtolength{\wideitemsep}{0.25em}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+
+%============================================================================================%
+% 		Fix the coloring of items in a ToC
+%============================================================================================%
+\setbeamerfont{section number projected}{%
+  series=\bfseries,size=\normalsize}
+\setbeamercolor{section number projected}{bg=white,fg=UniNavy}
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+
+
+
+%============================================================================================%
+% 		My own little peccadillos 
+%============================================================================================%
+
+%Environments
+\newcounter{count}
+\newtheorem{prop}[count]{Proposition}
+\newtheorem{ec}[count]{Extra Credit}
+\newtheorem{thm}[count]{Theorem}
+\newtheorem{cor}[count]{Corollary}
+\newtheorem{pro}[count]{Problem}
+\newtheorem{defi}[count]{Definition}
+\newtheorem{lem}[count]{Lemma}
+\newtheorem{res}[count]{Result}
+\newtheorem{cl}[count]{Claim}
+\newtheorem{aun}{Author's Note}
+\newtheorem{exx}[count]{Example}
+\newtheorem{mq}[count]{Motivating Question}
+
+%New Commands-------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+%Bracket Shortcuts
+\newcommand{\lrp}[1]{\left ( {#1} \right )}
+\newcommand{\lrb}[1]{\left [ {#1} \right ]}
+\newcommand{\lrsq}[1]{\left \{ {#1} \right \}}
+\newcommand{\lrabs}[1]{\left | {#1} \right |}
+\newcommand{\lrfl}[1]{\left \lfloor {#1} \right \rfloor}
+
+\newcommand{\mte}[1]{\quad \text{#1} \quad}
