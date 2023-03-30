@@ -1,0 +1,235 @@
+%============================================================================================%
+%   Define colors
+%============================================================================================%
+% taken from https://brand.uci.edu/master-branding/color-palette/
+
+% Signature Color Palette
+  \definecolor{UniMainColor}{RGB}{81,39,115} %UST Purple
+  \definecolor{UniSecondary}{RGB}{152,153,155}  %UST Gray
+  \definecolor{UniTertiary}{RGB}{255,255,255} 
+
+% Secondary Color Palette
+  %Blues
+  \definecolor{UniBlue}{RGB}{32,67,143}
+  \definecolor{UniBlue1}{RGB}{0,100,164}
+  \definecolor{UniBlueLight}{RGB}{106,162,184}
+  \definecolor{UniBlueDark}{RGB}{27,61,109}
+  %Grays
+  \definecolor{UniDarkGray}{RGB}{85,87,89}
+  \definecolor{UniLightGray}{RGB}{197,190,181}
+  %Greens
+  \definecolor{UniLightGreen}{RGB}{50,205,50} 
+  \definecolor{UniDarkGreen}{RGB}{19,136,8}
+  %Orange
+  \definecolor{UniOrange}{RGB}{247,141,45}
+  %Violet
+  \definecolor{UniViolet}{RGB}{53,14,32}
+    
+% Colors for the Shading, try not to mess around with these. 
+  \definecolor{RedShade2}{RGB}{0,17,63}
+    
+
+\setbeamercolor*{frametitle}{fg=white}
+
+\setbeamercolor*{title}{use=structure,fg=white,bg=UniMainColor}
+
+
+%============================================================================================%
+%   ASSIGN COLORS
+%============================================================================================%
+
+% Specify base color of the presentation
+  \usecolortheme[named=UniDarkGray]{structure}
+
+% Specify other specific colors
+  \setbeamercolor{block title alerted}{fg=white,bg=UniBlue1}
+  \setbeamercolor{block body alerted}{bg=UniBlueLight!50!white}
+  
+  \setbeamercolor{block title}{bg=UniMainColor,fg=white}
+  \setbeamercolor{block body}{bg=UniLightGray}
+  
+  \setbeamercolor{block title example}{bg=UniDarkGreen,fg=white}
+  \setbeamercolor{block body example}{bg=UniLightGreen,fg=white}
+
+  \setbeamercolor{author in head/foot}{bg=UniMainColor,fg=white}
+  \setbeamercolor{title in head/foot}{bg=UniSecondary,fg=black}
+  \setbeamercolor{date in head/foot}{bg=UniMainColor,fg=white}
+  \setbeamercolor{date in head/foot}{bg=UniMainColor,fg=white}
+    
+ \setbeamertemplate{headline}{
+ \begin{beamercolorbox}{section in head/foot} \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+ \end{beamercolorbox}}
+
+
+%============================================================================================%
+%   CREATE SLIDE TITLE BAR
+%============================================================================================%
+% Slide title bar features a blend of reds and a watermark of the shield logo on the right hand side
+
+% Create Shading:
+
+\colorlet{titleleft}{UniMainColor}
+\colorlet{titleright}{RedShade2}
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(titleleft);
+  %color(0.5\paperwidth)=(titleleft);
+  color(\paperwidth)=(titleright)}
+
+\defbeamertemplate*{frametitle}{horizontal shading}
+{%
+  \nointerlineskip%
+  %\vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+    \vskip-2pt
+}
+\makeatother
+
+
+% Add logo
+\addtobeamertemplate{frametitle}{}{%
+  \begin{textblock*}{1.3em}[0.75,0.75](0.73\paperwidth,0mm)
+  \includegraphics[height=3em,width=7em,keepaspectratio]{ST_crest_title.png}
+  \end{textblock*}
+}
+
+
+%============================================================================================%
+%     CUSTOMISE ENUMERATES AND ITEMIZED LISTS
+%============================================================================================%
+
+% Enumerated lists:
+%---------------------
+
+\setbeamertemplate{enumerate items}[default]  % Use numbers (e.g. "1.")
+
+\setbeamercolor*{enumerate item}{fg=UniMainColor}
+\setbeamercolor*{enumerate subitem}{fg=UniMainColor}
+\setbeamercolor*{enumerate subsubitem}{fg=UniMainColor}
+
+
+%============================================================================================%
+%   INNER THEME
+%============================================================================================%  
+%%%%%%
+% Here we am using the rounded theme for the overall "feel" of the presentation. You can change the specific details by editing that particular option as we have done below.
+\useinnertheme{rounded}
+
+
+\setbeamercolor{button}{bg=UniTertiary,fg=white}
+
+
+% Itemized lists:
+%---------------------
+% This is the set of lines that requires the fontawesome package 
+\defbeamertemplate{itemize item}{image}{\faChevronRight}
+\defbeamertemplate{itemize subitem}{image}{\faAngleDoubleRight}
+\defbeamertemplate{itemize subsubitem}{image}{\faAngleDoubleRight}
+
+\setbeamertemplate{itemize item}[image]
+\setbeamertemplate{itemize subitem}[image]
+\setbeamertemplate{itemize subsubitem}[image]
+
+% Use IrvineNavy color when the user defines their own itemize marker
+\setbeamercolor*{itemize item}{fg=UniMainColor}
+\setbeamercolor*{itemize subitem}{fg=UniMainColor}
+\setbeamercolor*{itemize subsubitem}{fg=UniMainColor}
+
+
+%============================================================================================%
+%     CREATE TITLE SLIDE
+%============================================================================================%
+
+% Customize the text layout:
+
+\setbeamerfont{title}{size=\huge}
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \usebeamerfont{title}\usebeamercolor[white]{title}\inserttitle\par
+  \usebeamerfont{subtitle}\usebeamercolor[white]{subtitle}\insertsubtitle\par
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+  \centering
+  \usebeamerfont{author}\insertauthor\par
+  \smallskip
+  \usebeamerfont{institute}\insertinstitute\par
+  \bigskip
+  \usebeamerfont{date}\insertdate\par
+  \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+
+}
+
+
+% Create title slide background
+
+\newcommand\BackgroundShaded{%
+\setbeamertemplate{background}{%
+\begin{tikzpicture}[every node/.style={inner sep=0,outer sep=0}]
+    \shade [left color=UniMainColor,right color=RedShade2]
+      (0,0) rectangle (\paperwidth,\paperheight);
+      \node [above left] (russell) at (\paperwidth,0) %(10,3.5)
+    {\includegraphics[height=.8\paperheight]{ST_seal}};
+  \end{tikzpicture}
+}}
+
+
+
+\renewcommand\maketitle{
+  {\BackgroundShaded
+  \begin{frame}
+  \titlepage
+  \end{frame}
+  }
+}
+
+
+%============================================================================================%
+%     Customize \tableofcontent
+%============================================================================================%
+% Simplier design.
+
+\setbeamerfont{section number projected}{series=\bfseries,size=\normalsize}
+\setbeamercolor{section number projected}{bg=white,fg=UniMainColor}
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
+
+
+
+
