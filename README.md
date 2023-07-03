@@ -12,7 +12,7 @@
     <br />
     Status: <em>First Version Released, Second In Progress:</em>
     <br />
-    The UCI Beamer Theme is complete, Pomona & Occidental are still in the process of being rebuilt.
+    The UCI, UST, Pomona Beamer Themes are complete, Occidental is still waiting on a suitable logo.
   </p>
 </div>
 
