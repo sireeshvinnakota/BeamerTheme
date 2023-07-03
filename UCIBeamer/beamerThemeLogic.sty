@@ -78,7 +78,6 @@
 % Use sharp right angle corners rather than the rounded corners
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
-
 		
 %============================================================================================%
 %		Adjust fonts
@@ -115,6 +114,25 @@
 \setbeamertemplate{sections/subsections in toc}[square]
 \setbeamercolor{section in toc}{fg=black}
 \setbeamercolor{subsection in toc}{fg=black}
+
+
+%============================================================================================%
+%					  fixing the madrid footer																												%
+%============================================================================================%
+\defbeamertemplate*{footline}{IrvineMath}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute) \quad \quad 
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+    \quad \usebeamerfont{title in head/foot}\insertshorttitle{}\hspace*{2em}
+    %\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\usebeamertemplate{IrvineMath}
 
 
 
