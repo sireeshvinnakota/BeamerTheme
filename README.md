@@ -10,7 +10,7 @@
     This is an unofficial template for select university Beamer Presentations. 
     <br />
     <br />
-    Status: <em>First Version Released:</em>
+    Status: <em>First Version Released, Second In Progress:</em>
     <br />
     The UCI Beamer Theme is complete, Pomona & Occidental are still in the process of being rebuilt.
   </p>
